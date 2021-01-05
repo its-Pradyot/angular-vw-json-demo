@@ -1,1 +1,20 @@
-<li *ngFor="let i of arr">{{i.email+"<<<>>>"+i.username}}</li>
+<button (click)="sendData()">Send</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Userid</th>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of arr">
+      <th scope="row">{{i.id}}</th>
+      <td>{{i.userId}}</td>
+      <td>{{i.title}}</td>
+      <td>{{i.body}}</td>
+    </tr>
+  </tbody>
+</table>

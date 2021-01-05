@@ -12,8 +12,12 @@ export class AppComponent implements OnInit {
   arr;
   constructor(private service: DemoService) {}
   ngOnInit(): void {
-    this.service.getServerData().subscribe(data => {
+    this.service.getServerData1().subscribe(data => {
       this.arr = Array.from(Object.keys(data), k => data[k]);
     });
+  }
+
+  sendData(){
+    this.service.postDataonServer(1,"abc",99000);
   }
 }
