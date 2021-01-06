@@ -1,3 +1,4 @@
+<!--
 <button (click)="sendData()">Send</button>
 
 <table class="table">
@@ -18,3 +19,26 @@
     </tr>
   </tbody>
 </table>
+-->
+
+<button (click)="getWebData()">okay</button>
+
+
+
+
+
+<input type="number" name="id" [(ngModel)]="empid">
+
+<input type="text" name="name" [(ngModel)]="ename">
+
+<input type="number" name="salary" [(ngModel)]="salary">
+
+<ul>
+
+	<li *ngFor="let i of mydata">
+
+		{{i.ename}}
+
+	</li>
+
+</ul>

@@ -1,5 +1,5 @@
 import { Component, OnInit, VERSION } from "@angular/core";
-import { DemoService } from "./demo.service";
+import { AsyncdataService } from "./asyncdata.service";
 
 @Component({
   selector: "my-app",
@@ -7,17 +7,29 @@ import { DemoService } from "./demo.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent implements OnInit {
-  name = "Angular " + VERSION.major;
+  title = "http-demo";
 
-  arr;
-  constructor(private service: DemoService) {}
-  ngOnInit(): void {
-    this.service.getServerData1().subscribe(data => {
-      this.arr = Array.from(Object.keys(data), k => data[k]);
+  mydata = [];
+
+  empid = "";
+
+  ename = "";
+
+  salary = "";
+
+  constructor(private ser: AsyncdataService) {}
+
+  ngOnInit() {
+    var temp = this.ser.getHttpData().subscribe(data => {
+      this.mydata = Array.from(Object.keys(data), i => data[i]);
     });
   }
 
-  sendData(){
-    this.service.postDataonServer(1,"abc",99000);
+  getWebData() {
+    console.log(this.mydata);
+
+    this.ser.postHttpData(this.empid, this.ename, this.salary).subscribe(res => {
+      console.log("Res = " + res);
+    });
   }
 }
