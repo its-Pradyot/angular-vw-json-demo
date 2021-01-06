@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     this.ser
       .postHttpData(this.empid, this.empname, this.salary)
       .subscribe(res => {
-        console.log("Res = " + res);
+        console.log("Res = " + JSON.stringify(res));
       });
   }
 }
