@@ -11,7 +11,7 @@ export class AsyncdataService {
   constructor(private http: HttpClient) {}
 
   getHttpData() {
-    return this.http.get("http://localhost:8082/emp123");
+    return this.http.get("http://localhost:8083/emp");
   }
 
   postHttpData(empid, ename, salary) {
@@ -28,7 +28,7 @@ export class AsyncdataService {
 
     console.log(this.postdata);
 
-    return this.http.post("http://localhost:8082/addemp", this.postdata, {
+    return this.http.post("http://localhost:8083/addemp", this.postdata, {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     });
   }
