@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   empid = "";
 
-  ename = "";
+  empname = "";
 
   salary = "";
 
@@ -28,8 +28,10 @@ export class AppComponent implements OnInit {
   getWebData() {
     console.log(this.mydata);
 
-    this.ser.postHttpData(this.empid, this.ename, this.salary).subscribe(res => {
-      console.log("Res = " + res);
-    });
+    this.ser
+      .postHttpData(this.empid, this.empname, this.salary)
+      .subscribe(res => {
+        console.log("Res = " + res);
+      });
   }
 }
